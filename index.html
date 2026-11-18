@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Blank template</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+
+
+        <textarea rows="20" cols = "100" id="intext" oninput="check()"></textarea>
+        <h4 id="message">My Recommendations will show up here</h4>
+        <img id="image" width= "30%" src="https://media.tenor.com/4dezf6tJGrsAAAAM/clippy-microsoft.gif" alt="Word Clippy GIFs | Tenor"/>
+
+<script>
+function check() {
+document.getElementById("image").src="https://media.tenor.com/4dezf6tJGrsAAAAM/clippy-microsoft.gif"
+document.getElementById("image").style.width = "30%"
+
+const input = document.getElementById("intext")
+
+const textInput = input.value.toLowerCase().trim()
+
+if (textInput.includes("dear") || textInput.includes("hi") || textInput.includes("sincerely") || textInput.includes("thanks") ){
+document.getElementById("message").textContent = "I see you are writing a letter, I would recommend making a good greeting"
+document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
+document.getElementById("image").style.width = "25%"
+} else if (textInput.includes("hate")) {
+document.getElementById("message").textContent = "Hey, those are some strong words please don't say that."
+document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
+document.getElementById("image").style.width = "25%"
+} else if (textInput.includes("experience") || textInput.includes("education")) {
+document.getElementById("message").textContent = "I see you might be writing a resume. I would recommend sounding professional."
+document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
+document.getElementById("image").style.width = "25%"
+}else {
+document.getElementById("message").textContent = "No recommendations you are amazing"
+}
+
+
+}
+
+</script>       
+    </body>
+
+</html>
