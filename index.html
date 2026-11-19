@@ -46,12 +46,12 @@
   </div>
   <div class="window-body">
 <div class="field-row">
-  <input id="radio5" type="radio" name="first-example">
-  <label for="radio5">Yes</label>
+  <input id="yes" type="radio" name="first-example">
+  <label for="yes">Yes</label>
 </div>
 <div class="field-row">
-  <input id="radio6" type="radio" name="first-example">
-  <label for="radio6">No</label>
+  <input id="no" type="radio" name="first-example">
+  <label for="no">No</label>
 </div>
 
       
@@ -69,6 +69,12 @@
 
 <script>
 function check() {
+
+if (document.getElementByID("yes").checked === true) {
+alert("hi")
+}
+
+
 document.getElementById("image").src="https://media.tenor.com/4dezf6tJGrsAAAAM/clippy-microsoft.gif"
 document.getElementById("image").style.width = "30%"
 
