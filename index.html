@@ -33,6 +33,8 @@
   </div>
 </div>
 
+        
+
 <div class="window" style="width: 300px">
   <div class="title-bar">
     <div class="title-bar-text">Enter your text to be scanned here</div>
@@ -43,6 +45,16 @@
     </div>
   </div>
   <div class="window-body">
+<div class="field-row">
+  <input id="radio5" type="radio" name="first-example">
+  <label for="radio5">Yes</label>
+</div>
+<div class="field-row">
+  <input id="radio6" type="radio" name="first-example">
+  <label for="radio6">No</label>
+</div>
+
+      
             <p style="font-size= 30px" id="message">My Recommendations will show up here</p>
 
         
@@ -68,7 +80,7 @@ if (textInput.includes("dear") || textInput.includes("hi") || textInput.includes
 document.getElementById("message").textContent = "I see you are writing a letter, I would recommend making a good greeting"
 document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
 document.getElementById("image").style.width = "25%"
-} else if (textInput.includes("hate")) {
+} else if (textInput.includes("hate") || textInput.includes("dislike") {
 document.getElementById("message").textContent = "Hey, those are some strong words please don't say that."
 document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
 document.getElementById("image").style.width = "25%"
