@@ -1,86 +1,302 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
-    <head>
+  <head>
 
         <meta charset="utf-8">
 
-        <title>Clippy</title>
-        <link rel="icon" href="https://d7hftxdivxxvm.cloudfront.net/?height=630&quality=85&resize_to=fill&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FmPisDeUp-bFdqp5jSaafeg%252FClippy%2Bthumb.jpg&width=1200">
-        <!-- Load external CSS styles -->
+        <title>Clippy Editor</title>
+
+        <link rel="icon" href="https://clippi.neocities.org/images/clippy%20transparent%20copy.gif">
+
        <link rel="stylesheet" href="https://unpkg.com/98.css">
+<style>
+.bubble {
+    position: relative;
+    background: #ffef7a;
+    color: black;
+  
+    font-size: 10px;
+    line-height: 17px;
 
-    </head>
+    text-align: left;
+    width: 123px;
+    height: 70px;
+    border-radius: 3px;
+    padding: 3px;
+    left:30px;
+}
+.bubble:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 28px 15px 0 0;
+    border-color: #ffef7a transparent transparent transparent;
+    bottom: -25px;
+    left: 24%;
+    margin-left: -19.5px;
+}
 
-    <body>
+body {
+    background-size: cover;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6vxTRtbI2ENLFzbPUqc1iqImWvTRkKHFEVgVtkjy5QoYk9vzgP300-Qg&s=10');
+}
+.btn {
+    text-align:right;
+    position: fixed;
+    left:1px;
+    bottom: 10px;
+    width: 100%;
+    min-height: 31px;
+    height: 31px;
+}
+.btnimage {
+  position: absolute;
+  left: 6px;
+  top: 3px;
 
+}
+.move {
+  position: absolute;
+  right: 230px;
+  top: 50%;
+  transform: translateY(-50%);
 
+}
+.clip {
+position: absolute;
+margin-top: 50px;
+left: 100px;
+}
+.win2 {
+  position: absolute;
+  left: 222px;
+  top: 60px;
 
-<div class="window" style="width: 550px">
-  <div class="title-bar">
-    <div class="title-bar-text">A Window With Stuff In It</div>
+}
+.clipimg {
+  margin-top: 30px;
+}
+</style>
+
+  </head>
+
+<body>
+
+<img src="https://www.cs.oberlin.edu/~rms/mmcc/a/icons/Desk.gif" alt="Desktop - Windows 95"/>
+
+<button onclick="check()" class="default">Submit</button>
+
+<div class="win2">
+  <div class="window" style="width: 650px">
+    <div class="title-bar">
+      <div class="title-bar-text">Enter your text here</div>
         <div class="title-bar-controls">
           <button aria-label="Minimize"></button>
           <button aria-label="Maximize"></button>
           <button aria-label="Close"></button>
+         </div>
+      </div>
+    <div class="field-row-stacked" style="width: 650px">
+      <label for="intext"> </label>
+      <textarea style="background-color:#dfdfdf" id="intext" rows="15"></textarea>
     </div>
   </div>
-
-        <div class="field-row-stacked" style="width: 550px">
-          <label for="intext"> </label>
-          <textarea style="background-color:#dfdfdf" oninput="check()" id="intext" rows="15"></textarea>
+</div>
+       
+<div class="clip">
+  <div class="window"  style="width: 300px">
+    <div class="title-bar">
+     <div  class="title-bar-text">Clippy</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+    <div class="window-body">
+      <div class="bubble" id="message">My recommendations will show here</div>
+        <img class="clipimg" id="image" width= "30%" src="https://clippi.neocities.org/images/clippy%20transparent%20copy.gif" alt="Word Clippy GIFs | Tenor"/>
+      </div>
     </div>
 </div>
 
-        
 
-<div class="window" style="width: 300px">
-  <div class="title-bar">
-    <div class="title-bar-text">Enter your text to be scanned here</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
+<div class="move">
+  <div class="window"  style="width: 200px">
+    <div class="title-bar">
+      <div id="message" class="title-bar-text">DVD LOGO</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+    <div class="window-body">
+      <img id="image" width="180px"  src="https://user-images.githubusercontent.com/19642322/66207589-d054c500-e6bb-11e9-9d84-a0fbb5d2ef93.gif" alt="Word Clippy GIFs | Tenor"/>
     </div>
-  </div>
-  <div class="window-body"> 
-        <p style="font-size= 30px" id="message">My Recommendations will show up here</p>
-        <img id="image" width= "30%" src="https://media.tenor.com/4dezf6tJGrsAAAAM/clippy-microsoft.gif" alt="Word Clippy GIFs | Tenor"/>
   </div>
 </div>
 
 
+
+
+
+<button class="btn"> <span id="time"></span>  <img class="btnimage" width= "60px" src="https://preview.redd.it/can-anybody-make-the-windows-95-start-button-v0-qtzmgvma70py.gif?format=png8&amp;s=36bce96569a266be6345aada4bfd4d1e14b3f029" alt="windows95startbtn"/></button>
 
 <script>
+var time = 0
+
+var animate = 0
+
+var rand1 = Math.random()
+
+var today = new Date();
+
+document.getElementById('time').innerHTML=today;
+
 function check() {
 
-document.getElementById("image").src="https://media.tenor.com/4dezf6tJGrsAAAAM/clippy-microsoft.gif"
-document.getElementById("image").style.width = "30%"
+  document.getElementById("image").src="https://clippi.neocities.org/images/clippy%20transparent%20copy.gif"
 
-const input = document.getElementById("intext")
+  document.getElementById("image").style.width = "30%"
 
-const textInput = input.value.toLowerCase().trim()
+  const input = document.getElementById("intext")
 
-if (textInput.includes("dear") || textInput.includes("hi") || textInput.includes("sincerely") || textInput.includes("thanks") ){
-document.getElementById("message").textContent = "I see you are writing a letter, I would recommend making a good greeting"
-document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
-document.getElementById("image").style.width = "25%"
-} else if (textInput.includes("hate") || textInput.includes("dislike")) {
-document.getElementById("message").textContent = "Hey, those are some strong words please don't say that."
-document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
-document.getElementById("image").style.width = "25%"
-} else if (textInput.includes("experience") || textInput.includes("education")) {
-document.getElementById("message").textContent = "I see you might be writing a resume. I would recommend sounding professional."
-document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif" 
-document.getElementById("image").style.width = "25%"
-} else {
-document.getElementById("message").textContent = "No recommendations you are amazing"
+  const textInput = input.value.toLowerCase().trim()
+
+  if (textInput.includes("dear") || textInput.includes("hi") || textInput.includes("sincerely") || textInput.includes("thanks") || textInput.includes("hello")){
+
+  if (rand1 >= 0.5){
+
+  document.getElementById("message").textContent = "I see you are writing a letter, I would recommend adding sincerely to sound professional"
+
+  document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif"
+
+  document.getElementById("image").style.width = "25%"
+
+  speech()
+
+  } else {
+
+  document.getElementById("message").textContent = "I see you are writing a letter, I would recommend making a good greeting"
+
+  document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif"
+
+  document.getElementById("image").style.width = "25%"
+
+  speech()
+
+  }
+
+  rand1 = Math.random()
+
+  } else if (textInput.includes("hate") || textInput.includes("dislike")) {
+
+  document.getElementById("message").textContent = "Hey, those are some strong words please don't say that."
+
+  document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif"
+
+  document.getElementById("image").style.width = "25%"
+
+  speech()
+
+  } else if (textInput.includes("experience") || textInput.includes("education")) {
+
+  document.getElementById("message").textContent = "I see you might be writing a resume. I would recommend sounding professional."
+
+  document.getElementById("image").src="https://www.wallender.com/wp-content/uploads/2019/06/clippy.gif"
+
+  document.getElementById("image").style.width = "25%"
+
+  speech()
+
+  } else {
+
+  document.getElementById("message").textContent = "No recommendations you are amazing"
+
+  speech()
+
+  }
+
+}
+
+function speech() {
+
+  const talk = document.getElementById("message").textContent
+
+  const speech = new SpeechSynthesisUtterance(talk);
+
+  speech.rate = 0.8
+
+  speech.pitch = 0.4
+
+  window.speechSynthesis.speak(speech)
+
 }
 
 
+function animation() {
+
+  if (animate === 1) {
+
+    document.getElementById("image").src="https://64.media.tumblr.com/018635f36c5b24858523a85a0c8c2089/tumblr_p4r7wxprps1tuvwugo2_250.gifv";
+
+  }
+  if (animate === 2) {
+
+    document.getElementById("image").src="https://slackmojis.com/emojis/2216-clippy3d/download";
+
+  }
+  if (animate === 3) {
+
+    document.getElementById("message").textContent = "I'm Bored I'm Bored I'm Bored"
+
+    speech()
+
+    document.getElementById("image").src="https://clippi.neocities.org/images/clippy%20transparent%20copy.gif";
+
+
+  }
+
+  if (animate ===4) {
+
+    document.getElementById("image").src="https://www.lappage.net/shared/windows98/clippy.gif"
+
+  }
+  if (animate ===5) {
+
+    document.getElementById("message").textContent = "I'm Bored I'm Bored I'm Bored"
+
+    document.getElementById("image").src="https://clippi.neocities.org/images/clippy%20transparent%20copy.gif";
+
+  }
+  if (animate===6){
+    animate = 0;
+  }
+
+
 }
 
-</script>       
+
+function timing() {
+animation()
+animate +=1
+}
+
+
+
+    const intervalId = setInterval(timing, 5000);
+
+
+
+
+
+
+</script>      
     </body>
 
 </html>
