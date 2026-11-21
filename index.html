@@ -148,6 +148,8 @@ left: 100px;
 <button class="btn"> <span id="time"></span>  <img class="btnimage" width= "60px" src="https://preview.redd.it/can-anybody-make-the-windows-95-start-button-v0-qtzmgvma70py.gif?format=png8&amp;s=36bce96569a266be6345aada4bfd4d1e14b3f029" alt="windows95startbtn"/></button>
 
 <script>
+var rand2 = Math.floor(Math.random() * 2);
+  
 var time = 0
 
 var animate = 0
@@ -287,7 +289,7 @@ function animation() {
 function timing() {
 animation()
 animate +=1
-var rand2 = Math.floor(Math.random() * 2);
+rand2 = Math.floor(Math.random() * 2);
   console.log(rand2);
 }
 
